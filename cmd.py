@@ -7,7 +7,8 @@ os.system("clear");
 print("******************** eBooker v" + version + " ********************")
 print("")
 
-helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session"
+helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool"
+aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. I will add more documentation after I have really started this project."
 
 while True:
 	cmd = str(input("ebooker > "))
@@ -26,5 +27,7 @@ while True:
 				print("OK, not exited!")
 			else:
 				print("Please type in \"y\" or  \"n\".")
+	elif cmd == "about":
+		print(aboutString)
 	else:
 		print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
