@@ -29,5 +29,17 @@ while True:
 				print("Please type in \"y\" or  \"n\".")
 	elif cmd == "about":
 		print(aboutString)
+	elif cmd == "edit":
+		editloopBool = True
+		while editloopBool:
+			editBool = str(input("Would you like to create a new file? (y/n) "))
+			if editBool == "y":
+				editloopBool = False
+				print("You want to create a new file.")
+			elif editBool == "n":
+				editloopBool = False
+				print("You want to edit an existing file!")
+			else:
+				print("Please type in \"y\" or  \"n\".")
 	else:
 		print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
