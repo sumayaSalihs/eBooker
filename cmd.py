@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 version = "0.1"
 
-try:
-	import curses
-except ImportError:
-	print("Hmmm... I wonder where \"curses\" is!")
 from time import sleep
 import sys
 import os
+try:
+	import curses
+except ImportError:
+	print("Hmmm... I wonder where \"curses\" is! If the program is still running, please stop it with ^C. Please contact the developer at archmaster@yahoo.com. Please type \"51189819\" into the subject box (without the quotes)!")
+	sleep(2)
 os.system("clear")
 print("Loading...")
 sleep(3)
