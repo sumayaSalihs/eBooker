@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 version = "0.1"
 
+try:
+	import curses
+except ImportError:
+	print("Hmmm... I wonder where \"curses\" is!")
 from time import sleep
 import sys
 import os
@@ -10,7 +14,7 @@ sleep(3)
 os.system("clear")
 print("******************** eBooker v" + version + " ********************")
 print("")
-sleep(3)
+sleep(1)
 
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen"
 aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit\"."
@@ -48,10 +52,10 @@ while True:
 				print("Please type in \"y\" or  \"n\".")
 	elif cmd == "clear":
 		print("Clearing...")
-		sleep(3)
+		sleep(2)
 		os.system("clear")
 		print("******************** eBooker v" + version + " ********************")
 		print("")
-		sleep(3)
+		sleep(1)
 	else:
 		print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
