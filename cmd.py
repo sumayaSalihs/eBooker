@@ -8,7 +8,7 @@ print("******************** eBooker v" + version + " ********************")
 print("")
 
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool"
-aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. I will add more documentation after I have really started this project."
+aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit\"."
 
 while True:
 	cmd = str(input("ebooker > "))
