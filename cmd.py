@@ -51,6 +51,16 @@ while True:
 						open(newfileString, "a").close()
 						print("Your file is created!")
 						nameblankBool = False
+				try:
+					sleep(2)
+					os.system("nano " + newfileString)
+				except RuntimeError:
+					print("You don't have \"nano\". Trying \"notepad\"...")
+					sleep(2)
+					try:
+						os.system("notepad " + newfileString)
+					except RuntimeError:
+						print("Sorry. You don't have a compatible text editor, so you have to edit this yourself. Filename is \"" + newfileString + "\" (without the quotes).")
 			elif editBool == "n":
 				editloopBool = False
 				print("You want to edit an existing file!")
