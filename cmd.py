@@ -1,14 +1,9 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 version = "0.1"
 
 from time import sleep
 import sys
 import os
-try:
-	import curses
-except ImportError:
-	print("Hmmm... I wonder where \"curses\" is! If the program is still running, please stop it with ^C. Please contact the developer at archmaster@yahoo.com. Please type \"51189819\" into the subject box (without the quotes)!")
-	sleep(2)
 os.system("clear")
 print("Loading...")
 sleep(3)
@@ -19,7 +14,6 @@ sleep(1)
 
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen"
 aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit.\""
-
 while True:
 	cmd = str(input("ebooker > "))
 	if cmd == "help":
