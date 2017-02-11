@@ -57,12 +57,32 @@ while True:
 				print("You want to edit an existing file!")
 			else:
 				print("Please type in \"y\" or  \"n\".")
-	elif cmd == "cls":
+	elif cmd == "clear":
 		print("Clearing...")
 		sleep(2)
 		os.system("cls")
 		print("******************** eBooker v" + version + " ********************")
 		print("")
 		sleep(1)
+	elif cmd == "debug":
+		print("Debugging help for Windows version:")
+		print("Email me at ebooker.support@zoho.com with the error code for the error message you encountered.")
+		print("|-----------------------|--------|")
+		print("|Message                |Code    |")
+		print("|-----------------------|--------|")
+		print("|'notepad' is not       |64485253|")
+		print("|recognized as an       |        |")
+		print("|internal or external   |        |")
+		print("|command, operable      |        |")
+		print("|program or batch file. |        |")
+		print("|-----------------------|--------|")
+		print("|'nano' is not          |31131613|")
+		print("|recognized as an       |        |")
+		print("|internal or external   |        |")
+		print("|command, operable      |        |")
+		print("|program or batch file  |        |")
+		print("|-----------------------|--------|")
+		print("|other message          |93856898|")
+		print("|-----------------------|--------|")
 	else:
 		print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")

@@ -65,5 +65,18 @@ while True:
 		print("******************** eBooker v" + version + " ********************")
 		print("")
 		sleep(1)
+	elif cmd == "debug":
+		print("Debugging help for MacOS/*nix version:")
+		print("Email me at ebooker.support@zoho.com with the error code for the error message you encountered.")
+		print("|-----------------------|--------|")
+		print("|Message                |Code    |")
+		print("|-----------------------|--------|")
+		print("|nano: command not found|42912246|")
+		print("|-----------------------|--------|")
+		print("|notepad: command not   |53461349|")
+    	print("|found                  |        |")
+		print("|-----------------------|--------|")
+		print("|other message          |87376634|")
+		print("|-----------------------|--------|")
 	else:
 		print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
