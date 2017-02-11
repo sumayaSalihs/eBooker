@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #dots {
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        background-color: red;
+        position: relative;
+        -webkit-animation-name: dots;
+        -webkit-animation-duration: 4s;
+        -webkit-animation-iteration-count: infinite;
+        animation-name: dots;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+      }
+      @-webkit-keyframes dots {
+        0%   {background-color:red; left:0px; top:0px;}
+        25%  {background-color:yellow; left:50px; top:0px;}
+        50%  {background-color:blue; left:50px; top:50px;}
+        75%  {background-color:green; left:0px; top:50px;}
+        100% {background-color:red; left:0px; top:0px;}
+      }
+      @keyframes dots {
+        0%   {background-color:red; left:0px; top:0px;}
+        25%  {background-color:yellow; left:50px; top:0px;}
+        50%  {background-color:blue; left:50px; top:50px;}
+        75%  {background-color:green; left:0px; top:50px;}
+        100% {background-color:red; left:0px; top:0px;}
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dots"></div>
+    <nav id="nav">
+      <ul>
+        <li>Hi</li>
+        <li>Hi2</li>
+      </ul>
+    </nav>
+  </body>
+</html>
