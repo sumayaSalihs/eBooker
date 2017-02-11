@@ -2,32 +2,42 @@
 <html>
   <head>
     <style>
+      @import url('https://fonts.googleapis.com/css?family=PT+Mono|PT+Sans|PT+Serif');
       #dots {
-        border-radius: 50%;
+        //border-radius: 50%;
         width: 25px;
         height: 25px;
-        background-color: red;
+        background-color: green;
         position: relative;
         -webkit-animation-name: dots;
-        -webkit-animation-duration: 4s;
+        -webkit-animation-duration: 6s;
         -webkit-animation-iteration-count: infinite;
         animation-name: dots;
-        animation-duration: 4s;
+        animation-duration: 6s;
         animation-iteration-count: infinite;
       }
       @-webkit-keyframes dots {
-        0%   {background-color:red; left:0px; top:0px;}
-        25%  {background-color:yellow; left:50px; top:0px;}
-        50%  {background-color:blue; left:50px; top:50px;}
-        75%  {background-color:green; left:0px; top:50px;}
-        100% {background-color:red; left:0px; top:0px;}
+        0%   {left:0px; top:0px;}
+        100% {left:0px; top:100px;}
       }
       @keyframes dots {
-        0%   {background-color:red; left:0px; top:0px;}
-        25%  {background-color:yellow; left:50px; top:0px;}
-        50%  {background-color:blue; left:50px; top:50px;}
-        75%  {background-color:green; left:0px; top:50px;}
-        100% {background-color:red; left:0px; top:0px;}
+        0%   {left:0px; top:0px;}
+        100% {left:0px; top:100px;}
+      }
+      #nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        width: 100%;
+        height: 50px;
+        background-color: #333333;
+        color: #f2f2f2;
+        font-family: "PT Serif", serif;
+      }
+      h1 {
+        color: #333333;
+        font-family: "PT Mono", serif;
       }
     </style>
   </head>
@@ -39,5 +49,6 @@
         <li>Hi2</li>
       </ul>
     </nav>
+    <h1>Heading 1</h1>
   </body>
 </html>
