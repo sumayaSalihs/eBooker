@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-version = "0.3"
+version = "0.4"
 
 from time import sleep
 import sys
@@ -12,8 +12,8 @@ print("******************** eBooker v" + version + " ********************")
 print("")
 sleep(1)
 
-helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen"
-aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit.\" It can also create a file using the \"edit\" command."
+helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen\ndebug - give you help"
+aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit.\" It can also create a file using the \"edit\" command. Version: MacOS/*nix"
 while True:
 	cmd = str(input("ebooker > "))
 	if cmd == "help":
@@ -51,6 +51,8 @@ while True:
 						open(newfileString, "a").close()
 						print("Your file is created!")
 						nameblankBool = False
+				sleep(2)
+				os.system("nano " + newfileString)
 			elif editBool == "n":
 				editloopBool = False
 				print("You want to edit an existing file!")
@@ -63,5 +65,18 @@ while True:
 		print("******************** eBooker v" + version + " ********************")
 		print("")
 		sleep(1)
+	elif cmd == "debug":
+		print("Debugging help for MacOS/*nix version:")
+		print("Email me at ebooker.support@zoho.com with the error code for the error message you encountered.")
+		print("|-----------------------|--------|")
+		print("|Message                |Code    |")
+		print("|-----------------------|--------|")
+		print("|nano: command not found|42912246|")
+		print("|-----------------------|--------|")
+		print("|notepad: command not   |53461349|")
+    	print("|found                  |        |")
+		print("|-----------------------|--------|")
+		print("|other message          |87376634|")
+		print("|-----------------------|--------|")
 	else:
 		print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
