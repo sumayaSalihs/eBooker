@@ -55,9 +55,10 @@ while True:
 				print("You want to edit an existing file!")
 			else:
 				print("Please type in \"y\" or  \"n\".")
-			# curses.nocbreak()
-			# stdscr.keypad(False)
-			# curses.echo()
+			curses.wrapper(editor)
+			curses.nocbreak()
+			stdscr.keypad(False)
+			curses.echo()
 	elif cmd == "clear":
 		print("Clearing...")
 		sleep(2)
@@ -67,3 +68,7 @@ while True:
 		sleep(1)
 	else:
 		print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
+
+def editor(stdscr):
+	stdscr.clear()
+	stdscr.addstr("Testing...")
