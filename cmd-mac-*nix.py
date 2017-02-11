@@ -53,6 +53,7 @@ while True:
 						nameblankBool = False
 				sleep(2)
 				os.system("nano " + newfileString)
+				print("If you got an error, use the \"debug\" command.")
 			elif editBool == "n":
 				editloopBool = False
 				print("You want to edit an existing file!")
