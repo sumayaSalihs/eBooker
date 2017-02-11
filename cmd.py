@@ -19,6 +19,9 @@ sleep(1)
 
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen"
 aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit.\""
+def editor(stdscr):
+	stdscr.clear()
+	stdscr.addstr("Testing...")
 
 while True:
 	cmd = str(input("ebooker > "))
@@ -69,7 +72,3 @@ while True:
 		sleep(1)
 	else:
 		print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
-
-def editor(stdscr):
-	stdscr.clear()
-	stdscr.addstr("Testing...")
