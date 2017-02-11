@@ -1,19 +1,18 @@
-#!/usr/bin/env python3
 version = "0.3"
 
 from time import sleep
 import sys
 import os
-os.system("clear")
+os.system("cls")
 print("Loading...")
 sleep(3)
-os.system("clear")
+os.system("cls")
 print("******************** eBooker v" + version + " ********************")
 print("")
 sleep(1)
 
-helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen"
-aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit.\" It can also create a file using the \"edit\" command."
+helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen\ndebug - give you help"
+aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit.\" It can also create a file using the \"edit\" command. Version: Windows"
 while True:
 	cmd = str(input("ebooker > "))
 	if cmd == "help":
@@ -24,7 +23,7 @@ while True:
 			exitBool = str(input("Would you like to quit? (y/n) "))
 			if exitBool == "y":
 				exitloopBool = False
-				os.system("clear")
+				os.system("cls")
 				sys.exit()
 			elif exitBool == "n":
 				exitloopBool = False
@@ -49,27 +48,19 @@ while True:
 						print("Creating file...")
 						sleep(3)
 						open(newfileString, "a").close()
-						print("Your file is created!")
+						print("Your file is created! Opening for edits...")
 						nameblankBool = False
-				try:
-					sleep(2)
-					os.system("nano " + newfileString)
-				except RuntimeError:
-					print("You don't have \"nano\". Trying \"notepad\"...")
-					sleep(2)
-					try:
-						os.system("notepad " + newfileString)
-					except RuntimeError:
-						print("Sorry. You don't have a compatible text editor, so you have to edit this yourself. Filename is \"" + newfileString + "\" (without the quotes).")
+				sleep(2)
+				os.system("notepad " + newfileString)
 			elif editBool == "n":
 				editloopBool = False
 				print("You want to edit an existing file!")
 			else:
 				print("Please type in \"y\" or  \"n\".")
-	elif cmd == "clear":
+	elif cmd == "cls":
 		print("Clearing...")
 		sleep(2)
-		os.system("clear")
+		os.system("cls")
 		print("******************** eBooker v" + version + " ********************")
 		print("")
 		sleep(1)
