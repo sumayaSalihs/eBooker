@@ -40,6 +40,17 @@ while True:
 			if editBool == "y":
 				editloopBool = False
 				print("You want to create a new file.")
+				nameblankBool = True
+				while nameblankBool:
+					newfileString = input("What would you like it to be called? ")
+					if (newfileString == "") || (newfileString == None) || (newfileString == " "):
+						print("You must enter a filename.")
+					else:
+						print("Creating file...")
+						sleep(3)
+						open(x, newfileString).close()
+						print("Your file is created!")
+						nameblankBool = False
 			elif editBool == "n":
 				editloopBool = False
 				print("You want to edit an existing file!")
