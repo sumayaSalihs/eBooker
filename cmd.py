@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-version = "0.1"
+version = "0.3"
 
 from time import sleep
 import sys
@@ -13,7 +13,7 @@ print("")
 sleep(1)
 
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen"
-aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit.\""
+aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit.\" It can also create a file using the \"edit\" command."
 while True:
 	cmd = str(input("ebooker > "))
 	if cmd == "help":
@@ -40,6 +40,17 @@ while True:
 			if editBool == "y":
 				editloopBool = False
 				print("You want to create a new file.")
+				nameblankBool = True
+				while nameblankBool:
+					newfileString = input("What would you like it to be called? ")
+					if (newfileString == "") or (newfileString == None) or (newfileString == " "):
+						print("You must enter a filename.")
+					else:
+						print("Creating file...")
+						sleep(3)
+						open(newfileString, "a").close()
+						print("Your file is created!")
+						nameblankBool = False
 			elif editBool == "n":
 				editloopBool = False
 				print("You want to edit an existing file!")
