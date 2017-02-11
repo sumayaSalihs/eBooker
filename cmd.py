@@ -6,10 +6,6 @@ import sys
 import os
 try:
 	import curses
-	stdscr = curses.initscr()
-	curses.noecho()
-	curses.cbreak()
-	stdscr.keypad(True)
 except ImportError:
 	print("Hmmm... I wonder where \"curses\" is! If the program is still running, please stop it with ^C. Please contact the developer at archmaster@yahoo.com. Please type \"51189819\" into the subject box (without the quotes)!")
 	sleep(2)
@@ -55,10 +51,15 @@ while True:
 				print("You want to edit an existing file!")
 			else:
 				print("Please type in \"y\" or  \"n\".")
+			stdscr = curses.initscr()
+			curses.noecho()
+			curses.cbreak()
+			stdscr.keypad(True)
 			curses.wrapper(editor)
 			curses.nocbreak()
 			stdscr.keypad(False)
 			curses.echo()
+			stdscr = None;
 	elif cmd == "clear":
 		print("Clearing...")
 		sleep(2)
