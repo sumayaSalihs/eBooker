@@ -58,6 +58,8 @@ p {
   line-height: 20px;
 }
 a.but {
+  position: relative;
+  top: 15px;
   border: 1px solid #00ff00;
   border-radius: 50px;
   padding: 7px;
