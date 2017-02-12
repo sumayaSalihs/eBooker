@@ -8,11 +8,12 @@ print("Loading...")
 sleep(3)
 os.system("cls")
 print("******************** eBooker v" + version + " ********************")
+print("Type in \"help\" at the prompt for, duh, help.")
 print("")
 sleep(1)
 
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen\ndebug - give you help"
-aboutString = "eBooker\nA command-line tool written in Python for writing Kindle eBooks. So far, it will just execute simple commands like \"help\" and \"exit.\" It can also create a file using the \"edit\" command. Version: Windows"
+aboutString = "eBooker is a command-line application written in Python. With it, you don't have to learn programming or manage massive user interfaces. So far, it can execute simple commands and also create a file to edit. Version: Windows"
 while True:
 	cmd = str(input("ebooker > "))
 	if cmd == "help":
