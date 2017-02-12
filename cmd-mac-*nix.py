@@ -14,7 +14,7 @@ print("")
 sleep(1)
 
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen\ndebug - give you help"
-aboutString = "eBooker is a command-line application written in Python. With it, you don't have to learn programming or manage massive user interfaces. So far, it can execute simple commands and also create a file to edit. Version: MacOS/*nix"
+aboutString = "eBooker is a command-line application written in Python. With it, you don't have to learn programming or manage massive user interfaces to make great eBooks. So far, it can execute simple commands and also create a file to edit. Version: MacOS/*nix"
 while True:
 	cmd = str(input("ebooker > "))
 	if cmd == "help":
