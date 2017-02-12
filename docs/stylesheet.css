@@ -54,6 +54,9 @@ body {
 a {
   color: #00ff00;
 }
+p {
+  line-height: 20px;
+}
 a.but {
   border: 1px solid #00ff00;
   border-radius: 50px;
