@@ -42,6 +42,12 @@ ul#nav li {
   padding: 18px 16px 14px;
   text-decoration: none;
 }
+ul#nav li a {
+  text-decoration: none;
+}
+ul#nav li.active {
+  text-decoration: underline;
+}
 ul#nav li#brand {
   padding: 14px 16px 14px;
   font-size: 20px;
