@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono');
+#scanner {
+  z-index: 9999;
+  width: 100%;
+  height: 1px;
+  background-color: #00ff00;
+  position: fixed;
+  -webkit-animation-name: scanner;
+  -webkit-animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: scanner;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@-webkit-keyframes scanner {
+  0%   {left: 0px; top: 0px;}
+  50%  {left: 0px; top: 50px;}
+  100% {left: 0px; top: 0px;}
+}
+@keyframes scanner {
+  0%   {left: 0px; top: 0px;}
+  50%  {left: 0px; top: 50px;}
+  100% {left: 0px; top: 0px;}
+}
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #000000;
+  color: #00ff00;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+ul#nav li {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 18px 16px 14px;
+  text-decoration: none;
+}
+ul#nav li a {
+  text-decoration: none;
+}
+ul#nav li.active {
+  text-decoration: underline;
+}
+ul#nav li#brand {
+  padding: 14px 16px 14px;
+  font-size: 20px;
+}
+body {
+  background-color: #1f1f1f;
+  color: #00ff00;
+  font-family: "PT Mono", monospace;
+}
+a {
+  color: #00ff00;
+}
+p {
+  margin-bottom: 30px;
+  line-height: 20px;
+}
+a.but {
+  position: relative;
+  top: 10px;
+  border: 1px solid #00ff00;
+  border-radius: 50px;
+  padding: 7px;
+  text-decoration: none;
+}
+a.but:hover {
+  background-color: #000000;
+}
+code {
+  background-color: #000000;
+  border-radius: 5px;
+  border: 1px solid #00ff00;
+  font-family: "PT Mono", monospace;
+  font-size: 12px;
+}
+#content {
+  padding-top: 25px;
+}
