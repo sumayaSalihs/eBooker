@@ -9,7 +9,7 @@ print("Loading...")
 sleep(3)
 os.system("clear")
 print("******************** eBooker v" + version + " ********************")
-print("Type in \"help\" at the prompt for, duh, help.")
+print("Type in \"help\" at the prompt for, of course, help.")
 print("")
 sleep(1)
 
@@ -41,8 +41,8 @@ while True:
 			if editBool == "y":
 				editloopBool = False
 				print("You want to create a new file.")
-				nameblankBool = True
-				while nameblankBool:
+				newnameblankBool = True
+				while newnameblankBool:
 					newfileString = input("What would you like it to be called? ")
 					if (newfileString == "") or (newfileString == None) or (newfileString == " "):
 						print("You must enter a filename.")
@@ -51,13 +51,24 @@ while True:
 						sleep(3)
 						open(newfileString, "a").close()
 						print("Your file is created!")
-						nameblankBool = False
+						newnameblankBool = False
 				sleep(2)
 				os.system("nano " + newfileString)
 				print("If you got an error, use the \"debug\" command.")
 			elif editBool == "n":
 				editloopBool = False
 				print("You want to edit an existing file!")
+				editnameblankBool = True
+				while editnameblankBool:
+					editfileString = input("Please type in the filename. ")
+					if (editfileString == "") or (editfileString == None) or (editfileString == " "):
+						print("You must enter a filename.")
+					else:
+						print("Opening file for editing...")
+						sleep(3)
+						editnameblankBool = False
+				os.system("nano " + editfileString)
+				print("If you got an error, use the \"debug\" command.")
 			else:
 				print("Please type in \"y\" or  \"n\".")
 	elif cmd == "clear":

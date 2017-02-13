@@ -40,8 +40,8 @@ while True:
 			if editBool == "y":
 				editloopBool = False
 				print("You want to create a new file.")
-				nameblankBool = True
-				while nameblankBool:
+				newnameblankBool = True
+				while newnameblankBool:
 					newfileString = input("What would you like it to be called? ")
 					if (newfileString == "") or (newfileString == None) or (newfileString == " "):
 						print("You must enter a filename.")
@@ -49,14 +49,25 @@ while True:
 						print("Creating file...")
 						sleep(3)
 						open(newfileString, "a").close()
-						print("Your file is created! Opening for edits...")
-						nameblankBool = False
+						print("Your file is created!")
+						newnameblankBool = False
 				sleep(2)
 				os.system("notepad " + newfileString)
 				print("If you got an error, use the \"debug\" command.")
 			elif editBool == "n":
 				editloopBool = False
 				print("You want to edit an existing file!")
+				editnameblankBool = True
+				while editnameblankBool:
+					editfileString = input("Please type in the filename. ")
+					if (editfileString == "") or (editfileString == None) or (editfileString == " "):
+						print("You must enter a filename.")
+					else:
+						print("Opening file for editing...")
+						sleep(3)
+						editnameblankBool = False
+				os.system("notepad " + editfileString)
+				print("If you got an error, use the \"debug\" command.")
 			else:
 				print("Please type in \"y\" or  \"n\".")
 	elif cmd == "clear":
