@@ -1,7 +1,5 @@
 # eBooker
 
-[![Join the chat at https://gitter.im/ebooker-chat/Lobby](https://badges.gitter.im/ebooker-chat/Lobby.svg)](https://gitter.im/ebooker-chat/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 eBooker is a command-line application written in Python. With it, you don't have to learn programming or manage massive user interfaces to make great eBooks. We provide simple download scripts for all major operating systems, so just [download](https://arch-master.github.io/eBooker/index.html), install, and enjoy.  
 **Current version: 1.0**
 
