@@ -86,8 +86,11 @@ code {
   padding-top: 25px;
 }
 #github-note {
-    float: right;
+    position: fixed;
+    right: 0;
     display: block;
+    top: 0;
+    border: 
 }
 #octocat {
     display: block;
