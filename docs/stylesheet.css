@@ -85,6 +85,10 @@ code {
 #content {
   padding-top: 25px;
 }
+#github-note {
+    float: right;
+    display: block;
+}
 #octocat {
     width: 75px;
     height: auto;
