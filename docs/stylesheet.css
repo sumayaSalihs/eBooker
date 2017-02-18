@@ -85,3 +85,7 @@ code {
 #content {
   padding-top: 25px;
 }
+#octocat {
+    width: 75px;
+    height: auto;
+}
