@@ -90,7 +90,13 @@ code {
     right: 0;
     display: block;
     top: 0;
-    border: 
+    border: 3px solid #9edaef;
+    background-color: #000000;
+    cursor: pointer;
+}
+#github-note:hover {
+    background-color: #9edaef;
+    color: #000000;
 }
 #octocat {
     display: block;
