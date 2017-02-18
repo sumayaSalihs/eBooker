@@ -90,6 +90,13 @@ code {
     display: block;
 }
 #octocat {
+    display: block;
     width: 75px;
     height: auto;
+    margin: 0 auto -15px auto;
+}
+#note {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
 }
