@@ -93,16 +93,31 @@ code {
     border: 3px solid #9edaef;
     background-color: #000000;
     cursor: pointer;
+    width: 80px;
+    height: 105px;
+    border-radius: 15%;
 }
 #github-note:hover {
     background-color: #9edaef;
     color: #000000;
 }
-#octocat {
+#octocat1 {
     display: block;
     width: 75px;
     height: auto;
     margin: 0 auto -15px auto;
+}
+#github-note:hover #octocat1 {
+    display: none;
+}
+#octocat2 {
+    display: none;
+    width: 65px;
+    height: auto;
+    margin: 0 auto -15px auto;
+}
+#github-note:hover #octocat2 {
+    display: block;
 }
 #note {
     display: block;
