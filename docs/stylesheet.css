@@ -1,4 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Mono');
+@media print {
+    #scanner, #nav, #github-link {
+        display: none;
+    }
+    #content {
+        color: #000000;
+    }
+    #content a {
+        color: #000000;
+        text-decoration: underline;
+    }
+    #content a.but {
+        border: none;
+        padding: 0;
+    }
+    code {
+        border: none !important;
+    }
+}
 #scanner {
   z-index: 99999;
   width: 100%;
