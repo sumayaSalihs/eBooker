@@ -3,7 +3,7 @@ version = "1.0.1"
 from time import sleep
 import sys
 import os
-import codecs;
+import codecs
 os.system("cls")
 print("Loading...")
 sleep(3)
