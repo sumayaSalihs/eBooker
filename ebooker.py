@@ -50,7 +50,7 @@ sleep(1)
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen\ndebug - give you help"
 aboutString = "eBooker is a command-line application written in Python. With it, you don't have to learn programming or manage massive user interfaces to make great eBooks. So far, it can execute simple commands and also create and edit a file."
 while True:
-    cmd = str(input("ebooker > "))
+    cmd = str(input("eBooker > "))
     if cmd == "help":
         print(helpString)
     elif cmd == "exit":
