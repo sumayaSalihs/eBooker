@@ -6,25 +6,38 @@ import sys
 import os
 import codecs;
 
-#check if os is linux or windows
 Nix = False
 if os.name == "posix":
 	Nix = True
 
-#os specific clear
 def clear():
-	if Nix == True:
-		os.system("clear")
-	else:
-		os.system("cls")
-
-#os specific open_editor
+    if Nix == True:
+        os.system("clear")
+    else:
+        os.system("cls")
 def open_editor(fileString):
-	if Nix == True:
-		os.system("nano " + fileString)
-	else:
-		os.system("notepad " + fileString)
-
+    if Nix == True:
+        os.system("nano " + fileString)
+    else:
+        os.system("notepad " + fileString)
+def debug():
+    print("|-----------------------|--------|")
+    print("|Message                |Code    |")
+    print("|-----------------------|--------|")
+    if Nix == True:
+        print("|nano: command not found|42912246|")
+        print("|-----------------------|--------|")
+        print("|other message          |87376634|")
+        print("|-----------------------|--------|")
+    else:
+        print("|'notepad' is not       |64485253|")
+        print("|recognized as an       |        |")
+        print("|internal or external   |        |")
+        print("|command, operable      |        |")
+        print("|program or batch file. |        |")
+        print("|-----------------------|--------|")
+        print("|other message          |93856898|")
+        print("|-----------------------|--------|")
 clear()
 print("Loading...")
 sleep(3)
@@ -35,7 +48,7 @@ print("")
 sleep(1)
 
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit this session\nabout - read about this tool\nedit - edit a file\nclear -  clear the screen\ndebug - give you help"
-aboutString = "eBooker is a command-line application written in Python. With it, you don't have to learn programming or manage massive user interfaces to make great eBooks. So far, it can execute simple commands and also create and edit a file. Version: MacOS/*nix"
+aboutString = "eBooker is a command-line application written in Python. With it, you don't have to learn programming or manage massive user interfaces to make great eBooks. So far, it can execute simple commands and also create and edit a file."
 while True:
     cmd = str(input("ebooker > "))
     if cmd == "help":
@@ -105,19 +118,7 @@ while True:
         sleep(1)
     elif cmd == "debug":
         print("Debugging help for MacOS/*nix version:")
-        print("Email me at ebooker.support@zoho.com with the error code for the error message you encountered.")
-        print("|-----------------------|--------|")
-        print("|Message                |Code    |")
-        print("|-----------------------|--------|")
-        print("|nano: command not found|42912246|")
-        print("|-----------------------|--------|")
-        print("|'nano' is not          |53461349|")
-        print("|recognized as an       |        |")
-        print("|internal or external   |        |")
-        print("|command, operable      |        |")
-        print("|program or batch file. |        |")
-        print("|-----------------------|--------|")
-        print("|other message          |87376634|")
-        print("|-----------------------|--------|")
+        print("Email me at archmaster@yahoo.com with the error code for the error message you encountered.")
+        debug()
     else:
         print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
