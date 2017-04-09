@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-version = "1.0.1"
+version = "1.0.2"
 
 from time import sleep
 import sys
