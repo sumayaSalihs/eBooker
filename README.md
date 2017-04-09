@@ -14,3 +14,5 @@ eBooker is a command-line tool which lets you create ebooks and other text files
 
 * `nano: command not found` - `42912246`
 * `other message` - `87376634`
+
+***Naming convention: branches with a Capital Letter at the beginning are protected.***
