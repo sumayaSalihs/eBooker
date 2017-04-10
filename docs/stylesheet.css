@@ -74,7 +74,8 @@ ul#nav li#brand {
 body {
   background-color: #1f1f1f;
   color: #00ff00;
-  font-family: "PT Mono", monospace;
+
+    font-family: "PT Mono", monospace;
 }
 a {
   color: #00ff00;
@@ -143,4 +144,7 @@ code {
     display: block;
     text-align: center;
     margin: 0 auto;
+}
+.gitter-chat-embed {
+    z-index: 99999999999999999999999999999999999;
 }
