@@ -148,3 +148,8 @@ code {
 .gitter-chat-embed {
     z-index: 99999999999999999999999999999999999;
 }
+.gitter-chat-embed-action-bar {
+	background: none;
+	color: white;
+	filter: invert(100%);
+}
