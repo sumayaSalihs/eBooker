@@ -9,7 +9,6 @@ import codecs;
 py3 = False
 if sys.version_info[0] >= 3:
 	py3 = True
-
 def get_input(message):
 	if py3 == True:
 		return str(input(message))
@@ -53,6 +52,7 @@ print("Loading...")
 sleep(3)
 clear()
 print("******************** eBooker v" + version + " ********************")
+print("*********************** Python " + str(sys.version_info[0]) + " ***********************")
 print("Type in \"help\" at the prompt for, of course, help.")
 print("")
 sleep(1)
