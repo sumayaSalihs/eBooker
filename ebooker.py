@@ -6,6 +6,16 @@ import sys
 import os
 import codecs;
 
+py3 = False
+if sys.version_info[0] >= 3:
+	py3 = True
+
+def get_input(message):
+	if py3 == True:
+		return str(input(message))
+	else:
+		return raw_input(message)
+
 Nix = False
 if os.name == "posix":
 	Nix = True
@@ -50,13 +60,13 @@ sleep(1)
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit the session\nabout - read about this tool\nedit - edit/create a file\nclear -  clear the screen\ndebug - give you a list of commonly occuring issues"
 aboutString = "eBooker is a command-line application written in Python. With it, you don't have to learn programming or manage massive user interfaces to make great ebooks. So far, it can execute simple commands and also create and edit a file."
 while True:
-    cmd = str(input("eBooker > "))
+    cmd = get_input("eBooker > ")
     if cmd == "help":
         print(helpString)
     elif cmd == "exit":
         exitloopBool = True
         while exitloopBool:
-            exitBool = str(input("Would you like to quit? (y/n) "))
+            exitBool = get_input("Would you like to quit? (y/n) ")
             if exitBool == "y":
                 exitloopBool = False
                 clear()
@@ -71,13 +81,13 @@ while True:
     elif cmd == "edit":
         editloopBool = True
         while editloopBool:
-            editBool = str(input("Would you like to create a new file? (y/n) "))
+            editBool = get_input("Would you like to create a new file? (y/n) ")
             if editBool == "y":
                 editloopBool = False
                 print("You want to create a new file.")
                 newnameblankBool = True
                 while newnameblankBool:
-                    newfileString = input("What would you like it to be called? ")
+                    newfileString = get_input("What would you like it to be called? ")
                     if (newfileString == "") or (newfileString == None) or (newfileString == " "):
                         print("You must enter a filename.")
                     else:
@@ -98,7 +108,7 @@ while True:
                 print("You want to edit an existing file!")
                 editnameblankBool = True
                 while editnameblankBool:
-                    editfileString = input("Please type in the filename. ")
+                    editfileString = get_input("Please type in the filename. ")
                     if (editfileString == "") or (editfileString == None) or (editfileString == " "):
                         print("You must enter a filename.")
                     else:
