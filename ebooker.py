@@ -6,6 +6,7 @@ import sys
 import os
 import codecs;
 
+assert True
 Nix = False
 if os.name == "posix":
 	Nix = True
