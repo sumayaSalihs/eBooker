@@ -4,7 +4,8 @@ version = "1.0.3"
 from time import sleep
 import sys
 import os
-import codecs;
+import codecs
+import webbrowser
 
 # TESTS
 def tests():
@@ -165,6 +166,7 @@ try:
             tests()
             print("Serving book...")
             sleep(2)
+            webbrowser.open("https://www.python.org")
             # Loop here
             # Put contents of all HTML files into one
             # augment() that file
