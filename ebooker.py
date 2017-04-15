@@ -6,6 +6,14 @@ import sys
 import os
 import codecs;
 
+# TESTS
+assert os.path.exists("docs/stylesheet.css")
+assert os.path.exists("README.md")
+assert os.path.exists("docs/index.html")
+assert os.path.exists("ebooker.py")
+assert os.path.exists("docs")
+# END TESTS
+
 py3 = False
 if sys.version_info[0] >= 3:
 	py3 = True
