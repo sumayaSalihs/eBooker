@@ -51,10 +51,13 @@ def open_editor(fileString):
         os.system("notepad " + fileString)
 
 def augment(fileString):
-    editfileFile = codecs.open("chapter-" + fileString + ".html", "a", "utf-8")
-    editfileFile.write("</body></html>")
+    editfileFile = codecs.open("chapter-" + fileString + ".html", "r", "utf-8")
+    editfileBuffer = "<!DOCTYPE html><html><head><title>" + "Chapter: " + fileString + "</title></head>"
+    editfileBuffer += editfileFile.read()
+    editfileBuffer += "</body></html>"
     editfileFile.close()
-
+    editfileFile = codecs.open("chapter-" + fileString + ".html", "w", "utf-8")
+    editfileFile.write(editfileBuffer)
 def debug():
     print("|-----------------------|--------|")
     print("|Message                |Code    |")
