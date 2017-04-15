@@ -21,8 +21,8 @@ def tests():
         print("")
         print("An internal error occurred!")
         print("Program execution stopped. Type RETURN to exit.")
-        errorLoopBool = True
-        while errorLoopBool:
+        errorloopBool = True
+        while errorloopBool:
             errorBool = get_input("")
             sys.exit(1)
 # END TESTS
@@ -154,6 +154,22 @@ try:
                     print("If you got an error, use the \"debug\" command.")
                 else:
                     print("Please type in \"y\" or  \"n\".")
+        elif cmd == "serve":
+            print("Serving book...")
+            sleep(2)
+            # Loop here
+            # Put contents of all HTML files into one
+            # augment() that file
+            # Open in default web browser
+            # CODE
+            # print("Sucess! Your file is served. Press ENTER when you are done reviewing.")
+            # doneloopBool = True
+            # while doneloopBool:
+            #   doneBool = get_input("")
+            # END CODE
+            # Delete that file
+            # For now:
+            print("This feature is coming soon...")
         elif cmd == "clear":
             tests()
             print("Clearing...")
@@ -172,5 +188,5 @@ try:
             print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
 except KeyboardInterrupt:
     print("")
-    if (tests()):
+    if tests():
         sys.exit()
