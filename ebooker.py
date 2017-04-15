@@ -94,6 +94,7 @@ try:
         if cmd == "help":
             tests()
             print(helpString)
+            tests()
         elif cmd == "exit":
             tests()
             exitloopBool = True
@@ -108,9 +109,11 @@ try:
                     print("OK, not exited!")
                 else:
                     print("Please type in \"y\" or  \"n\".")
+            tests()
         elif cmd == "about":
             tests()
             print(aboutString)
+            tests()
         elif cmd == "edit":
             tests()
             editloopBool = True
@@ -154,7 +157,9 @@ try:
                     print("If you got an error, use the \"debug\" command.")
                 else:
                     print("Please type in \"y\" or  \"n\".")
+            tests()
         elif cmd == "serve":
+            tests()
             print("Serving book...")
             sleep(2)
             # Loop here
@@ -169,7 +174,8 @@ try:
             # END CODE
             # Delete that file
             # For now:
-            print("This feature is coming soon...")
+            print("This feature is coming soon. It's not here yet!")
+            tests()
         elif cmd == "clear":
             tests()
             print("Clearing...")
@@ -178,14 +184,17 @@ try:
             print("******************** eBooker v" + version + " ********************")
             print("")
             sleep(1)
+            tests()
         elif cmd == "debug":
             tests()
             print("Debugging help for MacOS/*nix version:")
             print("Email me at archmaster@yahoo.com with the error code for the error message you encountered.")
             debug()
+            tests()
         else:
             tests()
             print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
+            tests()
 except KeyboardInterrupt:
     print("")
     if tests():
