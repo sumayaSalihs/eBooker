@@ -6,6 +6,6 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
-install: pip install -U pytest-cov
-script: pytest --cov=./
-after-success: codecov --token=0d762f09-92f3-4ff4-822e-d290a100957d
+  - "nightly"
+install: pip install -U pytest
+script: pytest
