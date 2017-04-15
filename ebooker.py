@@ -39,7 +39,6 @@ def get_input(message):
 Nix = False
 if os.name == "posix":
 	Nix = True
-
 def clear():
     if Nix == True:
         os.system("clear")
@@ -50,6 +49,7 @@ def open_editor(fileString):
         os.system("nano " + fileString)
     else:
         os.system("notepad " + fileString)
+
 def debug():
     print("|-----------------------|--------|")
     print("|Message                |Code    |")
@@ -110,10 +110,10 @@ try:
             tests()
             editloopBool = True
             while editloopBool:
-                editBool = get_input("Would you like to create a new file? (y/n) ")
+                editBool = get_input("Would you like to create a new chapter? (y/n) ")
                 if editBool == "y":
                     editloopBool = False
-                    print("You want to create a new file.")
+                    print("You want to create a new chapter.")
                     newnameblankBool = True
                     while newnameblankBool:
                         newfileString = get_input("What would you like it to be called? ")
@@ -122,7 +122,7 @@ try:
                         else:
                             print("Creating file...")
                             sleep(3)
-                            newfileFile = codecs.open(newfileString, "a", "utf-8")
+                            newfileFile = codecs.open("chapter-" + newfileString + ".html", "a", "utf-8")
                             newfileFile.write("Press CTRL-O then hit return to save. Press CTRL-X to exit.\n")
                             newfileFile.write("Don't worry if you can't see part of your lines; they will\n")
                             newfileFile.write("be saved anyway.")
@@ -130,22 +130,22 @@ try:
                         print("Your file is created!")
                         newnameblankBool = False
                     sleep(2)
-                    open_editor(newfileString)
+                    open_editor("chapter-" + newfileString + ".html")
                     print("If you got an error, use the \"debug\" command.")
                 elif editBool == "n":
                     tests()
                     editloopBool = False
-                    print("You want to edit an existing file!")
+                    print("You want to edit an existing chapter!")
                     editnameblankBool = True
                     while editnameblankBool:
-                        editfileString = get_input("Please type in the filename. ")
+                        editfileString = get_input("Please type in the name. ")
                         if (editfileString == "") or (editfileString == None) or (editfileString == " "):
                             print("You must enter a filename.")
                         else:
                             print("Opening file for editing...")
                             sleep(3)
                             editnameblankBool = False
-                    open_editor(editfileString)
+                    open_editor("chapter-" + editfileString + ".html")
                     print("If you got an error, use the \"debug\" command.")
                 else:
                     print("Please type in \"y\" or  \"n\".")
