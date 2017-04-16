@@ -6,27 +6,7 @@ import sys
 import os
 import codecs
 import webbrowser
-
-# TESTS
-def tests():
-    try:
-        assert os.path.exists("docs/stylesheet.css")
-        assert os.path.exists("README.md")
-        assert os.path.exists("docs/index.html")
-        assert os.path.exists("ebooker.py")
-        assert os.path.exists("docs")
-        assert helpString != ""
-        assert aboutString != ""
-        return
-    except:
-        print("")
-        print("An internal error occurred!")
-        print("Program execution stopped. Type RETURN to exit.")
-        errorloopBool = True
-        while errorloopBool:
-            errorBool = get_input("")
-            sys.exit(1)
-# END TESTS
+from tester import tests
 
 py3 = False
 if sys.version_info[0] >= 3:
