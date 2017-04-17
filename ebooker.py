@@ -6,6 +6,7 @@ import sys
 import os
 import codecs
 import webbrowser
+import glob
 from tester import tests
 
 py3 = False
@@ -146,9 +147,28 @@ try:
             tests()
             print("Serving book...")
             sleep(2)
-            augment("1")
-            webbrowser.open("file://" + os.path.dirname(os.path.realpath(__file__)) + "/chapter-1.html")
-            # Loop here
+            #augment("1")
+            #webbrowser.open("file://" + os.path.dirname(os.path.realpath(__file__)) + "/chapter-1.html")
+            """
+            filenameArray = glob.glob(os.path.dirname(os.path.realpath(__file__)) + "/*.html")
+            filenameArray = filenameArray.sort(key=os.path.getmtime)
+            for filenameString in filenameArray:
+                chapternameString = os.path.basename(filenameString)
+                chapternameString = os.path.splitext(chapternameString)[0]
+                chapternameString = chapternameString.replace("-", ": ", 1)
+                chapternameString = chapternameString.capitalize()
+                print(filenameString)
+                print(chapternameString)
+            """
+            user_input = ''
+            while user_input is not int:
+                try:
+                    user_input = int(get_input('Enter a number: '))
+                    break
+                except ValueError:
+                    print('Please enter a valid number: ')
+
+            print('You entered {}'.format(user_input))
             # Put contents of all HTML files into one
             # augment() that file
             # Open in default web browser
