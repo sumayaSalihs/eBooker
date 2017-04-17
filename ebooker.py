@@ -144,8 +144,6 @@ try:
             tests()
             print("Serving book...")
             sleep(2)
-            #augment("1")
-            #webbrowser.open("file://" + os.path.dirname(os.path.realpath(__file__)) + "/chapter-1.html")
             filenameArray = glob.glob(os.path.dirname(os.path.realpath(__file__)) + "/*.html")
             filebufferString = ""
             for filenameString in filenameArray:
@@ -157,12 +155,12 @@ try:
                 filecontentsString = codecs.open(newfilenameString, "r", "utf-8").read()
                 filebufferString += filecontentsString
                 filebufferString += "<hr/>"
-                print(newfilenameString)
-                print(chapternameString)
             filebufferString += "<center><h1>THE END!</h1></center>"
             filebufferString = augment(filebufferString)
-            print("")
-            print(filebufferString)
+            reviewfileFile = codecs.open("review-book.html", "w", "utf-8")
+            reviewfileFile.write(filebufferString)
+            reviewfileFile.close()
+            webbrowser.open("file://" + os.path.dirname(os.path.realpath(__file__)) + "/review-book.html")
             """
             user_input = "ABC"
             while user_input is not int:
