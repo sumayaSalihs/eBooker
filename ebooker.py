@@ -33,10 +33,10 @@ def open_editor(fileString):
         os.system("notepad " + fileString)
 
 def augment(filecontentsString):
-    editfileBuffer = "<!DOCTYPE html><html><head><title>" + "Chapter: " + fileString + "</title></head>"
+    editfileBuffer = "<!DOCTYPE html><html><head><title>" + "Your Book" + "</title></head>"
     editfileBuffer += filecontentsString
     editfileBuffer += "</body></html>"
-    return editFileBuffer
+    return editfileBuffer
 def debug():
     print("|-----------------------|--------|")
     print("|Message                |Code    |")
