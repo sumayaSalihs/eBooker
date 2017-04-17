@@ -32,12 +32,10 @@ def open_editor(fileString):
     else:
         os.system("notepad " + fileString)
 
-def augment(fileString):
-    editfileFile = codecs.open("chapter-" + fileString + ".html", "r", "utf-8")
+def augment(filecontentsString):
     editfileBuffer = "<!DOCTYPE html><html><head><title>" + "Chapter: " + fileString + "</title></head>"
-    editfileBuffer += editfileFile.read()
+    editfileBuffer += filecontentsString
     editfileBuffer += "</body></html>"
-    editfileFile.close()
     return editFileBuffer
 def debug():
     print("|-----------------------|--------|")
