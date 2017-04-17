@@ -170,17 +170,12 @@ try:
                 except ValueError:
                     print("Please enter a valid number: ")
             """
-            # Put contents of all HTML files into one
-            # augment() that file
-            # Open in default web browser
-            # CODE
-            # print("Sucess! Your file is served. Press ENTER when you are done reviewing.")
-            # doneloopBool = True
-            # while doneloopBool:
-            #   doneBool = get_input("")
-            # END CODE
-            # Delete that file
-            # For now:
+            print("Success! Your book is served. Press RETURN when you are done reviewing it.")
+            doneloopBool = True
+            while doneloopBool:
+                doneBool = get_input("")
+                break
+            os.remove("review-book.html")
             tests()
         elif cmd == "clear":
             tests()
