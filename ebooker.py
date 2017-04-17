@@ -38,8 +38,7 @@ def augment(fileString):
     editfileBuffer += editfileFile.read()
     editfileBuffer += "</body></html>"
     editfileFile.close()
-    editfileFile = codecs.open("chapter-" + fileString + ".html", "w", "utf-8")
-    editfileFile.write(editfileBuffer)
+    return editFileBuffer
 def debug():
     print("|-----------------------|--------|")
     print("|Message                |Code    |")
