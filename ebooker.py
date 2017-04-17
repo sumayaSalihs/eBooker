@@ -146,16 +146,23 @@ try:
             sleep(2)
             #augment("1")
             #webbrowser.open("file://" + os.path.dirname(os.path.realpath(__file__)) + "/chapter-1.html")
-            """
             filenameArray = glob.glob(os.path.dirname(os.path.realpath(__file__)) + "/*.html")
-            filenameArray = filenameArray.sort(key=os.path.getmtime)
+            filebufferString = ""
             for filenameString in filenameArray:
-                chapternameString = os.path.basename(filenameString)
-                chapternameString = os.path.splitext(chapternameString)[0]
-                chapternameString = chapternameString.replace("-", ": ", 1)
+                newfilenameString = os.path.basename(filenameString)
+                chapternameString = os.path.splitext(newfilenameString)[0]
+                chapternameString = chapternameString.replace("-", " ", 1)
                 chapternameString = chapternameString.capitalize()
-                print(filenameString)
+                filebufferString += "<h1>" + chapternameString + "</h1>"
+                filecontentsString = codecs.open(newfilenameString, "r", "utf-8").read()
+                filebufferString += filecontentsString
+                filebufferString += "<hr/>"
+                print(newfilenameString)
                 print(chapternameString)
+            filebufferString += "<center><h1>THE END!</h1></center>"
+            filebufferString = augment(filebufferString)
+            print("")
+            print(filebufferString)
             """
             user_input = "ABC"
             while user_input is not int:
@@ -164,6 +171,7 @@ try:
                     break
                 except ValueError:
                     print("Please enter a valid number: ")
+            """
             # Put contents of all HTML files into one
             # augment() that file
             # Open in default web browser
