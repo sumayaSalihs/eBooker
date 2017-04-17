@@ -104,35 +104,27 @@ try:
                 if editBool == "y":
                     editloopBool = False
                     print("You want to create a new chapter.")
-                    newnameblankBool = True
-                    while newnameblankBool:
-                        newfileString = get_input("What would you like it to be called? ")
+                    while True:
+                        newfileString = get_input("What would you like the chapter number to be? ")
                         if (newfileString == "") or (newfileString == None) or (newfileString == " "):
-                            print("You must enter a filename.")
+                            print("You must enter a chapter number.")
                         else:
-                            while True:
-                                if (newfileString is not int):
-                                    try:
-                                        newfileString = int(newfileString)
-                                        break
-                                        """
-                                        newfileString = int(get_input("Enter a number: "))
-                                        break
-                                        """
-                                    except ValueError:
-                                        print("You must enter a number.")
-                                newfileString = get_input("What would you like it to be called? ")
-                            print("Creating file...")
-                            sleep(3)
-                            newfileFile = codecs.open("chapter-" + str(newfileString) + ".html", "a", "utf-8")
-                            newfileFile.write("Press CTRL-O then hit return to save. Press CTRL-X to exit.\n")
-                            newfileFile.write("Don't worry if you can't see part of your lines; they will\n")
-                            newfileFile.write("be saved anyway.")
-                            newfileFile.close()
-                            print("Your file is created!")
-                            newnameblankBool = False
+                            try:
+                                newfileString = int(newfileString)
+                                break
+                            except ValueError:
+                                print("You must enter a number.")
+                    print("Creating file...")
+                    sleep(3)
+                    newfileFile = codecs.open("chapter-" + str(newfileString) + ".html", "a", "utf-8")
+                    newfileFile.write("Press CTRL-O then hit return to save. Press CTRL-X to exit.\n")
+                    newfileFile.write("Don't worry if you can't see part of your lines; they will\n")
+                    newfileFile.write("be saved anyway.")
+                    newfileFile.close()
+                    print("Your file is created!")
+                    newnameblankBool = False
                     sleep(2)
-                    open_editor("chapter-" + newfileString + ".html")
+                    open_editor("chapter-" + str(newfileString) + ".html")
                     print("If you got an error, use the \"debug\" command.")
                 elif editBool == "n":
                     tests()
