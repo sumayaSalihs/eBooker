@@ -102,6 +102,7 @@ try:
             while editloopBool:
                 editBool = get_input("Would you like to create a new chapter? (y/n) ")
                 if editBool == "y":
+                    tests()
                     editloopBool = False
                     print("You want to create a new chapter.")
                     while True:
@@ -126,23 +127,31 @@ try:
                     sleep(2)
                     open_editor("chapter-" + str(newfileString) + ".html")
                     print("If you got an error, use the \"debug\" command.")
+                    tests()
                 elif editBool == "n":
                     tests()
                     editloopBool = False
                     print("You want to edit an existing chapter!")
                     editnameblankBool = True
-                    while editnameblankBool:
-                        editfileString = get_input("Please type in the name. ")
+                    while True:
+                        editfileString = get_input("Please type in the chapter number. ")
                         if (editfileString == "") or (editfileString == None) or (editfileString == " "):
-                            print("You must enter a filename.")
+                            print("You must enter a chapter number.")
                         else:
-                            print("Opening file for editing...")
-                            sleep(3)
-                            editnameblankBool = False
-                    open_editor("chapter-" + editfileString + ".html")
+                            try:
+                                editfileString = int(editfileString)
+                                break
+                            except ValueError:
+                                print("You must enter a number.")
+                    print("Opening file for editing...")
+                    sleep(3)
+                    open_editor("chapter-" + str(editfileString) + ".html")
                     print("If you got an error, use the \"debug\" command.")
+                    tests()
                 else:
+                    tests()
                     print("Please type in \"y\" or  \"n\".")
+                    tests()
             tests()
         elif cmd == "serve":
             tests()
