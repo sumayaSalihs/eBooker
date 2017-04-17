@@ -146,7 +146,8 @@ try:
             tests()
             print("Serving book...")
             sleep(2)
-            webbrowser.open("https://www.python.org")
+            augment("1")
+            webbrowser.open("file://" + os.path.dirname(os.path.realpath(__file__)) + "/chapter-1.html")
             # Loop here
             # Put contents of all HTML files into one
             # augment() that file
@@ -159,7 +160,6 @@ try:
             # END CODE
             # Delete that file
             # For now:
-            print("This feature is coming soon. It's not here yet!")
             tests()
         elif cmd == "clear":
             tests()
