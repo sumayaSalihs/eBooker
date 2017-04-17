@@ -160,15 +160,13 @@ try:
                 print(filenameString)
                 print(chapternameString)
             """
-            user_input = ''
+            user_input = "ABC"
             while user_input is not int:
                 try:
-                    user_input = int(get_input('Enter a number: '))
+                    user_input = int(get_input("Enter a number: "))
                     break
                 except ValueError:
-                    print('Please enter a valid number: ')
-
-            print('You entered {}'.format(user_input))
+                    print("Please enter a valid number: ")
             # Put contents of all HTML files into one
             # augment() that file
             # Open in default web browser
