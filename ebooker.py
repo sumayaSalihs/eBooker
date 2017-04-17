@@ -110,15 +110,27 @@ try:
                         if (newfileString == "") or (newfileString == None) or (newfileString == " "):
                             print("You must enter a filename.")
                         else:
+                            while True:
+                                if (newfileString is not int):
+                                    try:
+                                        newfileString = int(newfileString)
+                                        break
+                                        """
+                                        newfileString = int(get_input("Enter a number: "))
+                                        break
+                                        """
+                                    except ValueError:
+                                        print("You must enter a number.")
+                                newfileString = get_input("What would you like it to be called? ")
                             print("Creating file...")
                             sleep(3)
-                            newfileFile = codecs.open("chapter-" + newfileString + ".html", "a", "utf-8")
+                            newfileFile = codecs.open("chapter-" + str(newfileString) + ".html", "a", "utf-8")
                             newfileFile.write("Press CTRL-O then hit return to save. Press CTRL-X to exit.\n")
                             newfileFile.write("Don't worry if you can't see part of your lines; they will\n")
                             newfileFile.write("be saved anyway.")
                             newfileFile.close()
-                        print("Your file is created!")
-                        newnameblankBool = False
+                            print("Your file is created!")
+                            newnameblankBool = False
                     sleep(2)
                     open_editor("chapter-" + newfileString + ".html")
                     print("If you got an error, use the \"debug\" command.")
@@ -161,15 +173,6 @@ try:
             reviewfileFile.write(filebufferString)
             reviewfileFile.close()
             webbrowser.open("file://" + os.path.dirname(os.path.realpath(__file__)) + "/review-book.html")
-            """
-            user_input = "ABC"
-            while user_input is not int:
-                try:
-                    user_input = int(get_input("Enter a number: "))
-                    break
-                except ValueError:
-                    print("Please enter a valid number: ")
-            """
             print("Success! Your book is served. Press RETURN when you are done reviewing it.")
             doneloopBool = True
             while doneloopBool:
