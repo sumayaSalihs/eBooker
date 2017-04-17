@@ -5,6 +5,16 @@
 eBooker is a command-line tool which lets you create ebooks and other text files from command line with ease. You don't have to be a programming expert or a nerd to use this. Anyone with a basic knowledge in computers can use this tool very easily. We provide just one script to run, so run it! So far, it can execute simple commands and also create and edit a file.
 **Current version: 1.0.3**
 
+# Commands
+
+* `help` - show a list of commands
+* `exit` - quit the session
+* `about` - read about this tool
+* `edit` - edit/create a file
+* `clear` - clear the screen
+* `debug` - give you a list of commonly occurring issues
+* `serve` - open your book in a web browser for reviewing
+
 # Error Codes
 
 ## On Windows
