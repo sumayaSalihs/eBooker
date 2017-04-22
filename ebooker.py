@@ -8,7 +8,8 @@ import codecs
 import webbrowser
 import glob
 from tester import tests
-
+def sleep(sfa):
+    pass
 py3 = False
 if sys.version_info[0] >= 3:
 	py3 = True
@@ -59,10 +60,15 @@ clear()
 print("Loading...")
 sleep(3)
 clear()
-print("******************** eBooker v" + version + " ********************")
-print("*********************** Python " + str(sys.version_info[0]) + " ***********************")
-print("Type in \"help\" at the prompt for, of course, help.")
+print("       ____              _ ")
+print("      |  _ \            | |")
+print("   ___| |_) | ___   ___ | | _____ _ __")
+print("  / _ \  _ < / _ \ / _ \| |/ / _ \ '__|")
+print(" |  __/ |_) | (_) | (_) |   <  __/ |")
+print("  \___|____/ \___/ \___/|_|\_\___|_| v" + version)
+print("                       Running on Python " + str(sys.version_info[0]) + "!")
 print("")
+print("Type in \"help\" at the prompt for, of course, help.")
 sleep(1)
 
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit the session\nabout - read about this tool\nedit - edit/create a file\nclear -  clear the screen\ndebug - give you a list of commonly occurring issues\nserve - open your book in a web browser for reviewing"
