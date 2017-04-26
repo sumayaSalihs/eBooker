@@ -8,8 +8,26 @@ import codecs
 import webbrowser
 import glob
 from tester import tests
-def sleep(sfa):
-    pass
+
+class Tester(object):
+    def test(self):
+        try:
+            assert os.path.exists("docs/stylesheet.css")
+            assert os.path.exists("README.md")
+            assert os.path.exists("docs/index.html")
+            assert os.path.exists("ebooker.py")
+            assert os.path.exists("docs")
+            assert type(self) is Tester
+            return
+        except:
+            print("")
+            print("An internal error occurred!")
+            print("Program execution stopped. Type RETURN to exit.")
+            errorloopBool = True
+            while errorloopBool:
+                errorBool = get_input("")
+                sys.exit(1)
+
 py3 = False
 if sys.version_info[0] >= 3:
 	py3 = True
@@ -18,6 +36,15 @@ def get_input(message):
 		return str(input(message))
 	else:
 		return raw_input(message)
+if py3 == True:
+	from urllib.request import urlopen
+else:
+	from urllib2 import urlopen
+def markdown_install():
+    if py3 == True:
+        os.system("pip3 install markdown")
+    else:
+        os.system("easy_install --home pip; pip install markdown")
 
 Nix = False
 if os.name == "posix":
@@ -56,14 +83,34 @@ def debug():
         print("|-----------------------|--------|")
         print("|other message          |93856898|")
         print("|-----------------------|--------|")
+def internet():
+    try:
+        urlopen("http://216.58.192.142", timeout=1)
+        return True
+    except URLError:
+        return False
+def markdown_installed():
+    try:
+        from markdown import markdown
+        return True
+    except ImportError:
+        return False
+
 clear()
 print("Loading...")
 sleep(3)
+if not markdown_installed():
+    if internet():
+        markdown_install()
+        from markdown import markdown
+    else:
+        print("Your internet connection is either too slow or nonexistent! I cannot install the required packages for you.")
+        sys.exit(1)
 clear()
 print("       ____              _ ")
 print("      |  _ \            | |")
 print("   ___| |_) | ___   ___ | | _____ _ __")
-print("  / _ \  _ < / _ \ / _ \| |/ / _ \ '__|")
+print("  / _ \  _ < / _ \ / _ \| |/ / _ \  __|")
 print(" |  __/ |_) | (_) | (_) |   <  __/ |")
 print("  \___|____/ \___/ \___/|_|\_\___|_| v" + version)
 print("                       Running on Python " + str(sys.version_info[0]) + "!")
@@ -74,17 +121,18 @@ sleep(1)
 helpString = "eBooker v" + version + " Help\n==============" + ("=" * len(version)) + "\nhelp - show this help\nexit - quit the session\nabout - read about this tool\nedit - edit/create a file\nclear -  clear the screen\ndebug - give you a list of commonly occurring issues\nserve - open your book in a web browser for reviewing"
 aboutString = "eBooker is a command-line tool which lets you create ebooks and other text files from command line with ease. You don't have to be a programming expert or a nerd to use this. Anyone with a basic knowledge in computers can use this tool very easily."
 
-tests()
+tester = Tester()
+tester.test()
 
 try:
     while True:
         cmd = get_input("eBooker > ")
         if cmd == "help":
-            tests()
+            tester.test()
             print(helpString)
-            tests()
+            tester.test()
         elif cmd == "exit":
-            tests()
+            tester.test()
             exitloopBool = True
             while exitloopBool:
                 exitBool = get_input("Would you like to quit? (y/n) ")
@@ -97,18 +145,18 @@ try:
                     print("OK, not exited!")
                 else:
                     print("Please type in \"y\" or  \"n\".")
-            tests()
+            tester.test()
         elif cmd == "about":
-            tests()
+            tester.test()
             print(aboutString)
-            tests()
+            tester.test()
         elif cmd == "edit":
-            tests()
+            tester.test()
             editloopBool = True
             while editloopBool:
                 editBool = get_input("Would you like to create a new chapter? (y/n) ")
                 if editBool == "y":
-                    tests()
+                    tester.test()
                     editloopBool = False
                     print("You want to create a new chapter.")
                     while True:
@@ -133,9 +181,9 @@ try:
                     sleep(2)
                     open_editor("chapter-" + str(newfileString) + ".html")
                     print("If you got an error, use the \"debug\" command.")
-                    tests()
+                    tester.test()
                 elif editBool == "n":
-                    tests()
+                    tester.test()
                     editloopBool = False
                     print("You want to edit an existing chapter!")
                     editnameblankBool = True
@@ -153,14 +201,14 @@ try:
                     sleep(3)
                     open_editor("chapter-" + str(editfileString) + ".html")
                     print("If you got an error, use the \"debug\" command.")
-                    tests()
+                    tester.test()
                 else:
-                    tests()
+                    tester.test()
                     print("Please type in \"y\" or  \"n\".")
-                    tests()
-            tests()
+                    tester.test()
+            tester.test()
         elif cmd == "serve":
-            tests()
+            tester.test()
             print("Serving book...")
             sleep(2)
             filenameArray = glob.glob(os.path.dirname(os.path.realpath(__file__)) + "/*.html")
@@ -186,27 +234,27 @@ try:
                 doneBool = get_input("")
                 break
             os.remove("review-book.html")
-            tests()
+            tester.test()
         elif cmd == "clear":
-            tests()
+            tester.test()
             print("Clearing...")
             sleep(2)
             clear()
             print("******************** eBooker v" + version + " ********************")
             print("")
             sleep(1)
-            tests()
+            tester.test()
         elif cmd == "debug":
-            tests()
+            tester.test()
             print("Debugging help for MacOS/*nix version:")
             print("Email me at archmaster@yahoo.com with the error code for the error message you encountered.")
             debug()
-            tests()
+            tester.test()
         else:
-            tests()
+            tester.test()
             print("\"" + cmd + "\" is not a valid command. Type \"help\" for more options")
-            tests()
+            tester.test()
 except KeyboardInterrupt:
     print("")
-    if tests():
+    if tester.test():
         sys.exit()
