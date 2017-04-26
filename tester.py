@@ -8,29 +8,28 @@ def get_input(message):
 		return str(input(message))
 	else:
 		return raw_input(message)
-def tests():
-    try:
-        assert os.path.exists("docs/stylesheet.css")
-        assert os.path.exists("README.md")
-        assert os.path.exists("docs/index.html")
-        assert os.path.exists("ebooker.py")
-        assert os.path.exists("docs")
-        return
-    except:
-        print("")
-        print("An internal error occurred!")
-        print("Program execution stopped. Type RETURN to exit.")
-        errorloopBool = True
-        while errorloopBool:
-            errorBool = get_input("")
-            sys.exit(1)
+class Tester(object):
+    def test(self):
+        try:
+            assert os.path.exists("docs/stylesheet.css")
+            assert os.path.exists("README.md")
+            assert os.path.exists("docs/index.html")
+            assert os.path.exists("ebooker.py")
+            assert os.path.exists("docs")
+            assert type(self) is Tester
+            return
+        except:
+            print("")
+            print("An internal error occurred!")
+            print("Program execution stopped. Type RETURN to exit.")
+            errorloopBool = True
+            while errorloopBool:
+                errorBool = get_input("")
+                sys.exit(1)
 if __name__ == "__main__":
+    tester = Tester()
     try:
-        assert os.path.exists("docs/stylesheet.css")
-        assert os.path.exists("README.md")
-        assert os.path.exists("docs/index.html")
-        assert os.path.exists("ebooker.py")
-        assert os.path.exists("docs")
+        tester.test()
     except:
         sys.exit(1)
     sys.exit(0)
