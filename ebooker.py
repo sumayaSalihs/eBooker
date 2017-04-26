@@ -7,7 +7,6 @@ import os
 import codecs
 import webbrowser
 import glob
-from tester import tests
 
 class Tester(object):
     def test(self):
