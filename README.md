@@ -5,6 +5,14 @@
 eBooker is a command-line tool which lets you create ebooks and other text files from command line with ease. You don't have to be a programming expert or a nerd to use this. Anyone with a basic knowledge in computers can use this tool very easily. We provide just one script to run, so run it! So far, it can execute simple commands and also create and edit a file.
 **Current version: 1.0.8**
 
+eBooker is very similar to [Sigil](https://github.com/Sigil-Ebook/Sigil), except for the following differences:
+
+1. eBooker is a command-line tool; Sigil is a GUI.  
+eBooker may eventually get a GUI too, though.
+2. eBooker is (currently) in development; Sigil is a finished project, although it is still being improved.
+3. eBooker is focused towards making Kindle ebooks in the `.mobi` format.
+4. eBooker is a new project, but Sigil has been out for a while.
+
 # Commands
 
 * `help` - show a list of commands
