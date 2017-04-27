@@ -7,7 +7,6 @@ import os
 import codecs
 import webbrowser
 import glob
-from tester import tests
 
 class Tester(object):
     def test(self):
@@ -91,7 +90,7 @@ def internet():
         return False
 def markdown_installed():
     try:
-        from markdown import markdown
+        import markdown
         return True
     except ImportError:
         return False
@@ -102,10 +101,10 @@ sleep(3)
 if not markdown_installed():
     if internet():
         markdown_install()
-        from markdown import markdown
     else:
         print("Your internet connection is either too slow or nonexistent! I cannot install the required packages for you.")
         sys.exit(1)
+import markdown
 clear()
 print("       ____              _ ")
 print("      |  _ \            | |")
@@ -220,7 +219,7 @@ try:
                 chapternameString = chapternameString.capitalize()
                 filebufferString += "<h1>" + chapternameString + "</h1>"
                 filecontentsString = codecs.open(newfilenameString, "r", "utf-8").read()
-                filebufferString += filecontentsString
+                filebufferString += markdown.markdown(filecontentsString)
                 filebufferString += "<hr/>"
             filebufferString += "<center><h1>THE END!</h1></center>"
             filebufferString = augment(filebufferString)
