@@ -1,35 +1,31 @@
+#!/usr/bin/env python3
+
 import os
 import sys
-py3 = False
-if sys.version_info[0] >= 3:
-	py3 = True
-def get_input(message):
-	if py3 == True:
-		return str(input(message))
-	else:
-		return raw_input(message)
+
+is_python_3 = sys.version_info[0] >= 3
+
+# define get_input
+get_input = (lambda message: str(input(message))) if is_python_3 \
+                                                else raw_input
 class Tester(object):
     def test(self):
         try:
-            assert os.path.exists("docs/stylesheet.css")
-            assert os.path.exists("README.md")
-            assert os.path.exists("docs/index.html")
-            assert os.path.exists("ebooker.py")
-            assert os.path.exists("docs")
-            assert type(self) is Tester
-            return
+            assert (
+                os.path.exists("docs/stylesheet.css") and
+                os.path.exists("README.md") and
+                os.path.exists("docs/index.html") and
+                os.path.exists("ebooker.py") and
+                os.path.exists("docs") and
+                type(self) is Tester
+            )
         except:
-            print("")
-            print("An internal error occurred!")
+            print("\nAn internal error occurred!")
             print("Program execution stopped. Type RETURN to exit.")
-            errorloopBool = True
-            while errorloopBool:
-                errorBool = get_input("")
-                sys.exit(1)
+
+            get_input("")
+            sys.exit(1)
+
 if __name__ == "__main__":
-    tester = Tester()
-    try:
-        tester.test()
-    except:
-        sys.exit(1)
+    Tester().test()
     sys.exit(0)
