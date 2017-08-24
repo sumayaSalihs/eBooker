@@ -6,16 +6,13 @@ import codecs
 import webbrowser
 import glob
 
+try:
+    import httplib
+except:
+    import http.client as httplib
+
 # test if files exist
 Tester().test()
-
-# import urlopen
-if is_python_3:
-    from urllib.request import urlopen
-    from urllib.error import URLError
-else:
-    from urllib2 import urlopen
-
 
 ##########################################################################
 __version__ = "1.1.0"
@@ -92,12 +89,14 @@ def debug():
 
 
 def internet():
+    conn = httplib.HTTPConnection("www.google.com", timeout=1)
     try:
-        urlopen("http://216.58.192.142", timeout=1)
+        conn.request("HEAD", "/")
+        conn.close()
         return True
-    except URLError:
+    except:
+        conn.close()
         return False
-
 
 def markdown_installed():
     return 'markdown' in sys.modules
