@@ -12,7 +12,7 @@ except:
     import http.client as httplib
 
 # test if files exist
-Tester().test()
+Tester().test(0)
 
 __version__ = "1.1.0"
 __help_string__ = "eBooker v" + __version__ + " Help\n==============" + \
