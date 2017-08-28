@@ -14,6 +14,7 @@ except:
 # test if files exist
 Tester().test()
 
+##########################################################################
 __version__ = "1.1.0"
 __help_string__ = "eBooker v" + __version__ + " Help\n==============" + \
     ("=" * len(__version__)) + "\n"+\
@@ -26,6 +27,8 @@ __help_string__ = "eBooker v" + __version__ + " Help\n==============" + \
     "serve  - open your book in a web browser for reviewing"
 __about_string__ = "eBooker is a command-line tool which lets you create ebooks and other text files from command line with ease. \
 You don't have to be a programming expert or a nerd to use this. Anyone with a basic knowledge in computers can use this tool very easily."
+##########################################################################
+
 
 def install_markdown():
     ''' install markdown module if not found '''
@@ -97,6 +100,9 @@ def internet():
 
 def markdown_installed():
     return 'markdown' in sys.modules
+
+
+##########################################################################
 
 clear()
 
