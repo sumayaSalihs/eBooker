@@ -14,10 +14,11 @@ except:
 # test if files exist
 Tester().test(0)
 
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 __help_string__ = "eBooker v" + __version__ + " Help\n==============" + \
     ("=" * len(__version__)) + "\n"+\
     "help   - show this help\n"+\
+    "docs   - show the documentation in a web browser (offline)\n"+\
     "exit   - quit the session\n"+\
     "about  - read about this tool\n"+\
     "edit   - edit/create a file\n"+\
@@ -117,7 +118,7 @@ print(
     "  / _ \  _ < / _ \ / _ \| |/ / _ \  __|\n"
     " |  __/ |_) | (_) | (_) |   <  __/ |\n"
     "  \___|____/ \___/ \___/|_|\_\___|_| v" + __version__ +
-    "                       Running on Python " +
+    "\n                       Running on Python " +
     str(sys.version_info[0]) + "!\n"
     "\n"
     "Type in \"help\" at the prompt for, of course, help."
@@ -167,7 +168,6 @@ def cmd_serve():
 
     get_input("")
     os.remove("review-book.html")
-
 
 def cmd_edit():
     editloopBool = True
@@ -259,6 +259,29 @@ def cmd_exit():
 
 def cmd_help():
     print(__help_string__)
+    
+def cmd_docs():
+    print("Serving documentation...")
+    docnameString = os.path.dirname(
+        os.path.realpath(__file__)) + "/README.md"
+        
+    newdocnameString = os.path.basename(docnameString)
+    doccontentsString = codecs.open(
+        newdocnameString, "r", "utf-8").read()
+    newdoccontentsString = markdown.markdown(doccontentsString)
+    newdoccontentsString = "<!DOCTYPE html><html><head><title>" + "eBooker Documentation" + \
+        "</title></head>" + newdoccontentsString + "</body></html>"
+    docfileFile = codecs.open("docs.html", "w", "utf-8")
+    docfileFile.write(newdoccontentsString)
+    docfileFile.close()
+    webbrowser.open(
+        "file://" + os.path.dirname(os.path.realpath(__file__)) + "/docs.html")
+    print(
+        "Success! The documentation has been served. Press RETURN when you are done reading it."
+    )
+
+    get_input("")
+    os.remove("docs.html")
 
 def main():
     while True:
@@ -278,6 +301,8 @@ def main():
             cmd_clear()
         elif cmd == "debug":
             cmd_debug()
+        elif cmd == "docs":
+            cmd_docs()
         else:
             print(
                 "\"" + cmd + "\" is not a valid command. Type \"help\" for more options"
