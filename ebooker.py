@@ -123,9 +123,6 @@ print(
     "Type in \"help\" at the prompt for, of course, help."
 )
 
-##########################################################################
-
-
 def cmd_debug():
     print("Debugging help for MacOS/*is_unix __version__:")
     print(
@@ -246,7 +243,6 @@ def cmd_edit():
 def cmd_about():
     print(__about_string__)
 
-
 def cmd_exit():
     exitloopBool = True
     while exitloopBool:
@@ -261,12 +257,8 @@ def cmd_exit():
         else:
             print("Please type in \"y\" or  \"n\".")
 
-
 def cmd_help():
     print(__help_string__)
-
-##########################################################################
-
 
 def main():
     while True:
