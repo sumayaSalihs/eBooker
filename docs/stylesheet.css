@@ -4,7 +4,7 @@ html, body,{
     width: 100%;
     height: 100%;
 }
-/*@import url('https://fonts.googleapis.com/css?family=PT+Mono');*/
+@import url('https://fonts.googleapis.com/css?family=PT+Mono');
 @media print {
     #scanner, #nav, #github-link {
         display: none;
@@ -46,6 +46,9 @@ html, body,{
   0%   {left: 0px; top: 0px;}
   50%  {left: 0px; top: 50px;}
   100% {left: 0px; top: 0px;}
+}
+ul, ol {
+    list-style-position: inside;
 }
 #nav {
   position: fixed;
