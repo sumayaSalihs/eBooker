@@ -24,3 +24,8 @@
 * `extras.py` - extra functions run in the other Python programs.
 * `tester.py` - tests run in CircleCI builds and in `ebooker.py`.
 * `docs/` - the website.
+
+## Comments
+
+* Please don't use multi-line comments (`"""BLAH BLAH BLAH BLAH BLAH BLAH """`).
+* Use regular, single-line comments (`# Blah blah`).
