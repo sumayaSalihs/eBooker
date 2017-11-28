@@ -46,7 +46,6 @@ clear()
 
 # Install markdown...
 # Except if internet connection doesn't work.
-"""
 if not markdown_installed():
     if internet():
         install_markdown()
@@ -56,7 +55,7 @@ if not markdown_installed():
 
 # Another import
 import markdown
-"""
+
 # Print eBooker initial text
 clear()
 print(
