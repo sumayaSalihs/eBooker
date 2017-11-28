@@ -25,14 +25,18 @@ eBooker may eventually get a GUI too, though.
 
 # Error Codes
 
+## About Error Codes
+
+If you got an error message, send the developer an email at [archmaster@yahoo.com](mailto:archmaster@yahoo.com) with the appropriate error code as the subject. There is a list of errors and error codes below.
+
 ## On Windows
 
+* `An internal error occurred. Program execution stopped.` - `89322810`
 * `'notepad' is not recognized as an internal or external  command, operable program or batch file.` - `64485253`
 * `other message` - `93856898`
 
 ## On MacOS/\*nix
 
+* `An internal error occurred. Program execution stopped.` - `40603285`
 * `nano: command not found` - `42912246`
 * `other message` - `87376634`
-
-***Naming convention: branches with a Capital Letter at the beginning are protected. Example: `Backup2`***
