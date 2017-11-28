@@ -12,6 +12,7 @@ eBooker may eventually get a GUI too, though.
 2. eBooker is (currently) in development; Sigil is a finished project, although it is still being improved.
 3. eBooker is focused towards making Kindle ebooks in the `.mobi` format.
 4. eBooker is a new project, but Sigil has been out for a while.
+5. eBooker will eventually be better than Sigil (hopefully)
 
 # Commands
 
@@ -31,12 +32,14 @@ If you got an error message, send the developer an email at [archmaster@yahoo.co
 
 ## On Windows
 
+* `An important project file is missing! Program execution stopped.` - `70954281`
 * `An internal error occurred. Program execution stopped.` - `89322810`
 * `'notepad' is not recognized as an internal or external  command, operable program or batch file.` - `64485253`
 * `other message` - `93856898`
 
 ## On MacOS/\*nix
 
+* `An important project file is missing! Program execution stopped.` - `39672039`
 * `An internal error occurred. Program execution stopped.` - `40603285`
 * `nano: command not found` - `42912246`
 * `other message` - `87376634`

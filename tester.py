@@ -27,9 +27,9 @@ class Tester(object):
                 )
         except:
             # Tests failed
-            print("\nAn internal error occurred!")
-            print("Program execution stopped. Type RETURN to exit.")
-            print("If you didn't, always cd into eBooker's folder before running this program.")
+            print("\nAn important project file is missing!")
+            print("Program execution stopped. Type RETURN to exit. Run \"debug\" command when you next open eBooker to report this problem.")
+            print("If you didn't already, always cd into eBooker's folder before running this program.")
             
             # Wait for RETURN, then exit
             getInput("")

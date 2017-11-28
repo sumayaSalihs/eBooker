@@ -1,4 +1,4 @@
-# Internal variable definitions
+# Internal variable declarations
 __version__ = "1.1.1"
 __help_string__ = "eBooker v" + __version__ + " Help\n==============" + \
     ("=" * len(__version__)) + "\n" +\

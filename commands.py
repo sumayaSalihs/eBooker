@@ -1,22 +1,22 @@
 # Imports
 from tester import Tester
-from extras import getInput, isPython3, isNix, augment, clear, openEditor
-from internals import *
+from extras import getInput, isPython3, isNix, augment, clear, openEditor, chapNum, printDebug
+import internals
 import sys, os, codecs, webbrowser, glob
 
 # Define Com class
 class Com(object):
-    def printDebug(self):
+    def debug(self):
         # Print debugging info (see printDebug() in extras.py)
         print("Debugging help for MacOS/*nix version:")
-        debug()
+        printDebug()
         
     def clear(self):
         # Clear screen
         print("Clearing...")
         clear()
         print("******************** eBooker v" +
-              __version__ + " ********************")
+              internals.__version__ + " ********************")
         print("")
 
 
@@ -72,7 +72,7 @@ class Com(object):
         # Edit or create a new file
         editloopBool = True
 
-        while True:
+        while editloopBool:
             # Check whether user wants to create a new chapter or edit an existing one
             editBool = getInput(
                 "Would you like to create a new chapter? (y/n) "
@@ -83,74 +83,69 @@ class Com(object):
                 editloopBool = False
                 print("You want to create a new chapter.")
 
-                while True:
-                    # Ask for chapter number
-                    newfileString = getInput(
-                        "What would you like the chapter number to be? ")
-                    
-                    # Check if user entered something
-                    if (newfileString == "") or (newfileString is None) or (newfileString == " "):
-                        print("You must enter a chapter number.")
-                    else:
-                        # Check if user entered a number
-                        try:
-                            newfileString = int(newfileString)
-                            break
-                        except ValueError:
-                            print("You must enter a number.")
+                newfileString = chapNum()
                             
-                # Create file
+                # Create and open file unless file already exists
                 print("Creating file...")
-
-                newfileFile = codecs.open(
-                    "chapter-" + str(newfileString) + ".html", "a", "utf-8"
-                )
-                newfileFile.write(
-                    "Press CTRL-O then hit return to save. Press CTRL-X to exit.\n"
-                )
-                newfileFile.write(
-                    "Don't worry if you can't see part of your lines; they will\n"
-                )
-
-                newfileFile.write("be saved anyway.")
-                newfileFile.close()
-
-                print("Your file is created!")
                 
-                # Open file for editing
-                openEditor("chapter-" + str(newfileString) + ".html")
+                newfileString = "chapter-" + str(newfileString) + ".html"
+                if not os.path.exists(newfileString):
+                    # File doesn't exist
+                    newfileFile = codecs.open(
+                        newfileString, "a", "utf-8"
+                    )
 
-                # Notify user about debug command
-                print("If you got an error, use the \"debug\" command.")
+                    # Put stuff in file based on OS
+                    if isNix:
+                        newfileFile.write(
+                            "Press CTRL-O then hit return to save. Press CTRL-X to exit.\n"
+                        )
+                        newfileFile.write(
+                            "Don't worry if you can't see part of your lines; they will\n"
+                        )
+                        newfileFile.write(
+                            "be saved anyway."
+                        )
+                    else:
+                        newfileFile.write(
+                            "Press CTRL-S to save. Click on the X to exit.\n"
+                        )
+
+                    # Close file
+                    newfileFile.close()
+
+                    print("Your file is created!")
+
+                    # Open file for editing
+                    openEditor(newfileString)
+                    
+                    # Notify user about debug command
+                    print("If you got an error, use the \"debug\" command.")
+                else:
+                    # File does exist
+                    print("That chapter already exists! Try running the edit command again but this time enter \"n\".")
 
             elif editBool == "n":
                 # User wants to create a new file
                 editloopBool = False
+                
                 print("You want to edit an existing chapter!")
-
-                while True:
-                    # Ask for chapter number
-                    editfileString = getInput(
-                        "Please type in the chapter number. ")
-                    
-                    # Check if user entered something
-                    if (editfileString == "") or (editfileString is None) or (editfileString == " "):
-                        print("You must enter a chapter number.")
-                    else:
-                        # Check if user entered a number
-                        try:
-                            editfileString = int(editfileString)
-                            break
-                        except ValueError:
-                            print("You must enter a number.")
-
-                # Open file for editing
+                
+                editfileString = chapNum();
+                
+                # Open file for editing unless file doesn't exist
                 print("Opening file for editing...")
+                
+                editfileString = "chapter-" + str(editfileString) + ".html"
+                if os.path.exists(editfileString):
+                    # File exists
+                    openEditor(editfileString)
 
-                openEditor("chapter-" + str(editfileString) + ".html")
-
-                # Notify user about debug command
-                print("If you got an error, use the \"debug\" command.")
+                    # Notify user about debug command
+                    print("If you got an error, use the \"debug\" command.")
+                else:
+                    # File doesn't exist
+                    print("That file doesn't exist. Try running the edit command again but this time enter \"y\".")
             else:
                 # User didn't type in y or n
                 print("Please type in \"y\" or  \"n\".")
@@ -158,7 +153,7 @@ class Com(object):
 
     def about(self):
         # Display information about eBooker (see __about_string__ in internals.py)
-        print(__about_string__)
+        print(internals.__about_string__)
 
     def exit(self):
         # Begin process to exit eBooker
@@ -182,15 +177,14 @@ class Com(object):
 
     def ehelp(self):
         # Print help (see __help_string__ in internals.py)
-        print(__help_string__)
+        print(internals.__help_string__)
 
     def docs(self):
         # Display documentation in web browser
         print("Serving documentation...")
         
         # Find and read README.md
-        docnameString = os.path.dirname(
-            os.path.realpath(__file__)) + "/README.md"
+        docnameString = os.path.dirname(os.path.realpath(__file__)) + "/README.md"
         newdocnameString = os.path.basename(docnameString)
         doccontentsString = codecs.open(
             newdocnameString, "r", "utf-8").read()

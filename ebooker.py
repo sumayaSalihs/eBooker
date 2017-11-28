@@ -4,6 +4,7 @@
 from tester import Tester
 from commands import Com
 from extras import getInput, isPython3, isNix, clear
+import internals
 import sys, os, webbrowser
 
 try:
@@ -11,8 +12,12 @@ try:
 except:
     import http.client as httplib
 
+# Create instances of classes
+testerInst = Tester();
+comInst = Com();
+    
 # Run tester script (see tester.py)
-Tester().test(0)
+testerInst.test(0)
 
 # Install markdown module if not found
 def install_markdown():
@@ -41,6 +46,7 @@ clear()
 
 # Install markdown...
 # Except if internet connection doesn't work.
+"""
 if not markdown_installed():
     if internet():
         install_markdown()
@@ -50,7 +56,7 @@ if not markdown_installed():
 
 # Another import
 import markdown
-
+"""
 # Print eBooker initial text
 clear()
 print(
@@ -59,7 +65,7 @@ print(
     "   ___| |_) | ___   ___ | | _____ _ __\n"
     "  / _ \  _ < / _ \ / _ \| |/ / _ \  __|\n"
     " |  __/ |_) | (_) | (_) |   <  __/ |\n"
-    "  \___|____/ \___/ \___/|_|\_\___|_| v" + __version__ +
+    "  \___|____/ \___/ \___/|_|\_\___|_| v" + internals.__version__ +
     "\n                       Running on Python " +
     str(sys.version_info[0]) + "!\n"
     "\n"
@@ -69,34 +75,46 @@ print(
 # Read input and run the proper command (see commands.py)
 def main():
     while True:
-        Tester.test(0)
+        testerInst.test(0)
         
         cmd = getInput("eBooker > ")
         
         if cmd == "help":
-            Com.ehelp()
+            comInst.ehelp()
         elif cmd == "exit":
-            Com.exit()
+            comInst.exit()
         elif cmd == "about":
-            Com.about()
+            comInst.about()
         elif cmd == "edit":
-            Com.edit()
+            comInst.edit()
         elif cmd == "serve":
-            Com.serve()
+            comInst.serve()
         elif cmd == "clear":
-            Com.clear()
+            comInst.clear()
         elif cmd == "debug":
-            Com.debug()
+            comInst.debug()
         elif cmd == "docs":
-            Com.docs()
+            comInst.docs()
         else:
             print(
                 "\"" + cmd + "\" is not a valid command. Type \"help\" for more options"
             )
 
-# Run main() unless user hits Ctrl-C, in which case exit.
+# Run main() unless user hits Ctrl-C, in which case exit...
+# Or if there is an error, show a message
 try:
+    # Run main()
     main()
 except KeyboardInterrupt:
+    # Ctrl-C
     print("")
     sys.exit()
+except:
+    # An error
+    print("\nAn internal error occurred!")
+    print("Program execution stopped. Type RETURN to exit. Run \"debug\" command when you next open eBooker to report this problem.")
+    print("If you didn't already, always cd into eBooker's folder before running this program.")
+    raise
+    # Wait for RETURN, then exit
+    getInput("")
+    sys.exit(1)
