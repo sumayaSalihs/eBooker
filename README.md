@@ -14,6 +14,8 @@ eBooker may eventually get a GUI too, though.
 4. eBooker is a new project, but Sigil has been out for a while.
 5. eBooker will eventually be better than Sigil (hopefully)
 
+**Note: Ignore branch `development-offline`!**
+
 # Commands
 
 * `help` - show a list of commands
