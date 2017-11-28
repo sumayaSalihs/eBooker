@@ -23,8 +23,9 @@ class Tester(object):
                 assert (
                     # If running in CircleCI...
                     # Test for docs/ and contents...
-                    # And README.md
+                    # And README.md and CONTRIBUTING.md
                     os.path.exists("README.md") and
+                    os.path.exists("CONTRIBUTING.md") and
                     os.path.exists("docs/downloads.html") and
                     os.path.exists("docs/about.html") and
                     os.path.exists("docs/octocat1.png") and
