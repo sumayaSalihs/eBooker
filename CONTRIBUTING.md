@@ -6,6 +6,7 @@
 * When the code in `development` is stable and has made a signifigant change, merge `development` into `master`.
 * I will periodically create backup branches such as `Backup`, `Backup2`, etc. The names of these and other protected branches will be capitalized at the beginning.
 * Please do not create any other branches; if there is a specific reason why you have to, email me at [archmaster@yahoo.com](mailto:archmaster@yahoo.com).
+* **Ignore branch `development-offline`!**
 
 ## Conventions
 
