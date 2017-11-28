@@ -10,16 +10,25 @@ class Tester(object):
     def test(self, n):
         try:
             assert (
-                # Test for README.md, tester.py, and ebooker.py
-                os.path.exists("README.md") and
+                # Test for Python files and LICENSE.txt
                 os.path.exists("tester.py") and
+                os.path.exists("extras.py") and
+                os.path.exists("commands.py") and
+                os.path.exists("internals.py") and
                 os.path.exists("ebooker.py") and
+                os.path.exists("LICENSE.txt") and
                 type(self) is Tester
             )
             if n:
                 assert (
                     # If running in CircleCI...
-                    # Test for docs/ and contents.
+                    # Test for docs/ and contents...
+                    # And README.md
+                    os.path.exists("README.md") and
+                    os.path.exists("docs/downloads.html") and
+                    os.path.exists("docs/about.html") and
+                    os.path.exists("docs/octocat1.png") and
+                    os.path.exists("docs/octocat2.png") and
                     os.path.exists("docs/stylesheet.css") and
                     os.path.exists("docs/index.html") and
                     os.path.exists("docs") and
