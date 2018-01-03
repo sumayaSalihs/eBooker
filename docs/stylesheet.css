@@ -184,7 +184,7 @@ h1, h2{
 }
 @keyframes grow-left {
   from {
-    transform: scaleX(o);
+    transform: scaleX(0);
   }
   to {
     transform: scaleX(1);
