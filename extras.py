@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, internals
 
 # Check Python version
 isPython3 = sys.version_info[0] >= 3
@@ -9,12 +9,12 @@ isNix = os.name == "posix"
 # Get user input
 getInput = (lambda message: str(input(message))) if isPython3 \
                                                 else raw_input
-    
+
 # Add HTML stuff to served book
 def augment(filecontentsString, title):
     return "<!DOCTYPE html><html><head><title>" + title + \
         "</title></head>" + filecontentsString + "</body></html>"
-    
+
 # Print possible errors
 def printDebug():
     print(
@@ -60,21 +60,21 @@ def printDebug():
             "|other message          |93856898|\n"
             "|-----------------------|--------|"
         )
-        
+
 # Open the correct editor
 def openEditor(fileString):
     if isNix:
         os.system("nano " + fileString)
     else:
         os.system("notepad " + fileString)
-        
+
 # Clear the terminal
 def clear():
     if isNix:
         os.system("clear")
     else:
         os.system("cls")
-        
+
 def chapNum():
     while True:
         # Ask for chapter number
@@ -92,3 +92,11 @@ def chapNum():
             except ValueError:
                 print("You must enter a number.")
     return chapnumString
+
+# print banner
+def banner(title, border='#'):
+       v = internals.__version__
+       frame_line =  border * (len(title) + len(v) + 8)
+       print(frame_line.center(70))
+       print('{0} {1} - v{2} {0}'.format(border, title, v).center(70))
+       print(frame_line.center(70) + "\n")
