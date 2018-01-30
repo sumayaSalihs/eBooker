@@ -15,14 +15,17 @@ except:
 # Create instances of classes
 testerInst = Tester();
 comInst = Com();
-    
+
 # Run tester script (see tester.py)
 testerInst.test(0)
 
 # Install markdown module if not found
 def install_markdown():
     if isPython3:
+      if os.geteuid()==0:
         os.system("pip3 install markdown")
+      else:
+        os.system("pip3 install --user markdown")
     else:
         os.system("easy_install --home pip; pip install markdown")
 
@@ -75,9 +78,9 @@ print(
 def main():
     while True:
         testerInst.test(0)
-        
+
         cmd = getInput("eBooker > ")
-        
+
         if cmd == "help":
             comInst.ehelp()
         elif cmd == "exit":
