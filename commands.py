@@ -1,6 +1,6 @@
 # Imports
 from tester import Tester
-from extras import getInput, isPython3, isNix, augment, clear, openEditor, chapNum, printDebug
+from extras import banner, getInput, isPython3, isNix, augment, clear, openEditor, chapNum, printDebug
 import internals
 import sys, os, codecs, webbrowser, glob
 
@@ -10,20 +10,17 @@ class Com(object):
         # Print debugging info (see printDebug() in extras.py)
         print("Debugging help for MacOS/*nix version:")
         printDebug()
-        
+
     def clear(self):
         # Clear screen
         print("Clearing...")
         clear()
-        print("******************** eBooker v" +
-              internals.__version__ + " ********************")
-        print("")
-
+        banner("eBooker", "#")
 
     def serve(self):
         # Serve current book in a web browser
         print("Serving book...")
-        
+
         # Get list of HTML files
         filenameArray = glob.glob(os.path.dirname(
             os.path.realpath(__file__)) + "/*.html")
@@ -37,26 +34,26 @@ class Com(object):
             chapternameString = chapternameString.replace("-", " ", 1)
             chapternameString = chapternameString.capitalize()
             filebufferString += "<h1>" + chapternameString + "</h1>"
-            
+
             # Open file and read contents
             filecontentsString = codecs.open(
                 newfilenameString, "r", "utf-8").read()
             filebufferString += markdown.markdown(filecontentsString)
-            
+
             # Add horizontal divider to end
             filebufferString += "<hr/>"
-            
+
         # Add "THE END!"
         filebufferString += "<center><h1>THE END!</h1></center>"
-        
+
         # Augment file (see augment() in extras.py)
         filebufferString = augment(filebufferString, "Your Book")
-        
+
         # Write text to file
         reviewfileFile = codecs.open("review-book.html", "w", "utf-8")
         reviewfileFile.write(filebufferString)
         reviewfileFile.close()
-        
+
         # Open in web browser
         webbrowser.open(
             "file://" + os.path.dirname(os.path.realpath(__file__)) + "/review-book.html")
@@ -84,10 +81,10 @@ class Com(object):
                 print("You want to create a new chapter.")
 
                 newfileString = chapNum()
-                            
+
                 # Create and open file unless file already exists
                 print("Creating file...")
-                
+
                 newfileString = "chapter-" + str(newfileString) + ".html"
                 if not os.path.exists(newfileString):
                     # File doesn't exist
@@ -118,7 +115,7 @@ class Com(object):
 
                     # Open file for editing
                     openEditor(newfileString)
-                    
+
                     # Notify user about debug command
                     print("If you got an error, use the \"debug\" command.")
                 else:
@@ -128,14 +125,14 @@ class Com(object):
             elif editBool == "n":
                 # User wants to create a new file
                 editloopBool = False
-                
+
                 print("You want to edit an existing chapter!")
-                
+
                 editfileString = chapNum();
-                
+
                 # Open file for editing unless file doesn't exist
                 print("Opening file for editing...")
-                
+
                 editfileString = "chapter-" + str(editfileString) + ".html"
                 if os.path.exists(editfileString):
                     # File exists
@@ -182,22 +179,22 @@ class Com(object):
     def docs(self):
         # Display documentation in web browser
         print("Serving documentation...")
-        
+
         # Find and read README.md
         docnameString = os.path.dirname(os.path.realpath(__file__)) + "/README.md"
         newdocnameString = os.path.basename(docnameString)
         doccontentsString = codecs.open(
             newdocnameString, "r", "utf-8").read()
-        
+
         # Augment file (see augment() in extras.py)
         newdoccontentsString = markdown.markdown(doccontentsString)
         newdoccontentsString = augment(newdoccontentsString, "eBooker Documentation")
-        
+
         # Write text to file
         docfileFile = codecs.open("docs.html", "w", "utf-8")
         docfileFile.write(newdoccontentsString)
         docfileFile.close()
-        
+
         # Open in web browser
         webbrowser.open(
             "file://" + os.path.dirname(os.path.realpath(__file__)) + "/docs.html")
