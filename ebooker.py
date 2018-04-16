@@ -22,10 +22,14 @@ testerInst.test(0)
 # Install markdown module if not found
 def install_markdown():
     if isPython3:
-      if os.geteuid()==0:
-        os.system("pip3 install markdown")
-      else:
-        os.system("pip3 install --user markdown")
+        try:
+            if os.geteuid()==0:
+                os.system("pip3 install markdown")
+            else:
+                os.system("pip3 install --user markdown")
+        except AttributeError:
+            # method geteuid() is not supported on Windows as of Python 3.6.4
+            os.system("pip3 install markdown")
     else:
         os.system("easy_install --home pip; pip install markdown")
 
